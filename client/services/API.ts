@@ -15,9 +15,9 @@ export const getGames = async (config: GamesGetMethodConfig): Promise<any> => {
     }
 };
 
-export const getProviders = async (): Promise<any> => {
+export const getMeta = async (): Promise<any> => {
     try {
-        const { data } = await axios.get('/api/providers');
+        const { data } = await axios.get('/api/meta');
         return data;
 
     } catch (err) {

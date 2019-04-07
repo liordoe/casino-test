@@ -4,20 +4,23 @@ import { connect } from 'react-redux';
 
 export interface ISearchPanelProps {
     providers: Array<string>;
+    collectionIds: Array<string>;
     onFilterChange: (value) => void;
 }
 
 export interface ISearchPanelState {
     provider: string;
+    cId: string;
     ids: boolean;
     name: string;
 }
 
-const ArrayToOptions = (array: Array<string>) => array.map(item => ({ value: item, label: item }));
+const ArrayToOptions = (array: Array<string> = []) => array.map(item => ({ value: item, label: item }));
 
 class SearchPanel extends React.Component<ISearchPanelProps, ISearchPanelState> {
     static defaultProps: ISearchPanelProps = {
         providers: [],
+        collectionIds: [],
         onFilterChange: () => {
         },
     };
@@ -28,6 +31,7 @@ class SearchPanel extends React.Component<ISearchPanelProps, ISearchPanelState> 
         this.state = {
             name: '',
             provider: '',
+            cId: '',
             ids: null,
         };
     }
@@ -40,14 +44,14 @@ class SearchPanel extends React.Component<ISearchPanelProps, ISearchPanelState> 
     };
 
     render() {
-        const { providers } = this.props;
+        const { providers, collectionIds } = this.props;
         const providerOptions = ArrayToOptions(providers);
-        const sortOptions = [ { value: '1', label: 'ASC' }, { value: '-1', label: 'DESC' } ];
+        const collectionOptions = ArrayToOptions(collectionIds);
 
         return (
             <div className="search-panel">
-                <BasicFilter label="Providers" options={providerOptions} onChange={this.onChange('provider')}/>
-                <BasicFilter label="Sort (id)" options={sortOptions} onChange={this.onChange('sort')}/>
+                <BasicFilter label="Provider" options={providerOptions} onChange={this.onChange('provider')}/>
+                <BasicFilter label="Collection" options={collectionOptions} onChange={this.onChange('collection')}/>
             </div>
         );
     }
@@ -55,6 +59,7 @@ class SearchPanel extends React.Component<ISearchPanelProps, ISearchPanelState> 
 
 const mapStateToProps = state => ({
     providers: state.Games.providers,
+    collectionIds: state.Games.collections,
 });
 
 export default connect(mapStateToProps)(SearchPanel);

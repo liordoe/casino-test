@@ -4,7 +4,6 @@ const { defaultConfig, rootPath } = require('./defaults');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
     mode: 'development',
@@ -29,13 +28,8 @@ const config = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'postcss-loader',
                     'sass-loader',
                 ],
-            },
-            {
-                test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3|ico)$/,
-                loader: 'file-loader?name=[name].[ext]'
             },
             {
                 test: /\.html/,
@@ -48,9 +42,6 @@ const config = {
         new LiveReloadPlugin({
             appendScriptTag: true,
         }),
-        new CopyWebpackPlugin([
-            { from: './assets', to: 'assets' }
-        ])
     ]
 };
 

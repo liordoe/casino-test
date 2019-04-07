@@ -24,14 +24,8 @@ class App {
         return freePort;
     }
 
-    /**
-     * Use the order to provide correct initializing
-     */
     private async initMiddleware() {
         this.app.use(express.static(clientConfig.output.path));
-
-        // uncomment after placing your favicon in /public
-        //src.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));

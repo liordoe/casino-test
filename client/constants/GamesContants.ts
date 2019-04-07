@@ -1,2 +1,3 @@
 export const GET_GAMES = 'GET_GAMES';
-export const GET_PROVIDERS = 'GET_PROVIDERS';
+export const ADD_GAMES = 'ADD_GAMES';
+export const GET_META_FIELDS = 'GET_META_FIELDS';

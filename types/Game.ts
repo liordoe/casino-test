@@ -1,16 +1,26 @@
 export interface IGame {
-    name: string;
-    versions: {
-        mobile: boolean;
-        desktop: boolean;
-    },
-    provider: string;
-    ageRatings: {
-        appstore: number;
-        googleplay: number;
-    },
-    description: string;
-    picture: string;
-    url: string;
-    countriesRatings: Map<string, string>;
+    'db_id': string,
+    'status': string,
+    'gameProvider': string,
+    'startType': string,
+    'isFreeplayAllowed': boolean,
+    'nextOpeningTimeUtc': string,
+    'nextClosingTimeUtc': string,
+    'openingTimeUtc': string,
+    'closingTimeUtc': string,
+    'showIsLeavingJurisdiction': boolean,
+    'allowedOrientation': string,
+    'tags': [string],
+    'gameCollectionIds': [string],
+    'gameId': string,
+    'name': string,
+    'width': number,
+    'height': number,
+    'description': string,
+    'themeUrl': string,
+    'thumbnailUrl': string,
+    'helpUrl': string,
+    'trivia': [string],
+    'seoName': string,
+    'friendlyName': string
 }

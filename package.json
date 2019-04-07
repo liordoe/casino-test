@@ -10,9 +10,10 @@
     "watch:front": "webpack --config config/webpack/client.config.js --watch",
     "watch:server": "webpack --config config/webpack/server.config.js --watch",
     "watch": "run-p watch:server watch:front",
-    "start": "nodemon build/server/app.js --watch build/server/app.js",
+    "start": "nodemon build/server/app.js",
+    "server": "nodemon build/server/app.js --watch build/server/app.js",
     "postinstall": "run-s build:server build:front",
-    "dev": "run-p watch start"
+    "dev": "run-p watch server"
   },
   "author": "Nikita Kosukhin",
   "license": "ISC",
@@ -67,7 +68,7 @@
     "source-map-loader": "^0.2.4",
     "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
-    "tslint-react": "^3.6.0",
+    "tslint-config-standard": "^8.0.1",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",

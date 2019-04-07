@@ -4,18 +4,15 @@
   display: flex;
   position: relative;
   margin-bottom: 20px;
+  background-color: #525252;
+  color: #fff;
 
-  &::after, &::before {
+  &::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 1px;
     background-color: #000;
-    top: 0;
-  }
-
-  &::after {
-    top: auto;
     bottom: 0;
   }
 
