@@ -6,8 +6,9 @@ export const getGames = async (fields: { [s: string]: string }): Promise<any> =>
     try {
         const findCondition = {} as any;
         const { provider, collection, page } = fields;
+        const step = 20;
         let skip = 0;
-        let limit = 10;
+        let limit = step;
         if (provider) {
             findCondition.gameProvider = provider;
         }
@@ -15,8 +16,8 @@ export const getGames = async (fields: { [s: string]: string }): Promise<any> =>
             findCondition.gameCollectionIds = collection;
         }
         if (!isNaN(parseInt(page))) {
-            skip = Number(page) * 10;
-            limit = skip + 10;
+            skip = Number(page) * step;
+            limit = skip + step;
         }
         return await GameModel.find(findCondition).skip(skip).limit(limit);
     } catch (err) {

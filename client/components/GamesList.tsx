@@ -35,7 +35,7 @@ class GamesList extends React.Component<IGamesListProps, any> {
 
         window.onscroll = () => {
             const fullHeight = window.innerHeight + document.documentElement.scrollTop;
-            if (fullHeight=== document.documentElement.offsetHeight) {
+            if (fullHeight >= document.documentElement.offsetHeight) {
                 this.loadMore();
             }
         }
