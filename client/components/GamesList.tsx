@@ -56,7 +56,7 @@ class GamesList extends React.Component<IGamesListProps, any> {
         this.setState({ loading: true });
         addGames(newConfig)
             .then(() => this.setState({loading: false, config: newConfig}))
-            .catch(() => this.setState({loading: false, config: newConfig}));
+            .catch(() => this.setState({loading: false }));
     };
 
     renderGames = () => {
